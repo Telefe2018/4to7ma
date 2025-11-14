@@ -1,0 +1,237 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+  transition: background 0.3s, color 0.3s;
+  scroll-behavior: smooth;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.logo-escuela {
+  width: 60px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.subtitulo {
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin-top: 8px;
+}
+
+#darkModeToggle,
+#c1ThemeToggle {
+  margin-top: 16px;
+  background: none;
+  border: 1px solid #ccc;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, border 0.3s;
+}
+
+#searchBar {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.file-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+}
+
+.file-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.file-card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #34495e;
+}
+
+.file-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.download-btn {
+  background-color: #2e86de;
+  color: white;
+  padding: 10px 16px;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #1b4f72;
+}
+
+.exam-calendar {
+  background: #f4f4f4;
+  padding: 20px;
+  margin: 30px auto;
+  border-radius: 12px;
+  max-width: 400px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.exam-calendar h2 {
+  margin-bottom: 15px;
+}
+
+.exam-calendar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.exam-calendar li {
+  margin: 10px 0;
+  font-weight: 500;
+}
+
+footer {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 0.875rem;
+  color: #aaa;
+}
+
+/* 🌓 Modo Oscuro */
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark header h1 {
+  color: #ffffff;
+}
+
+body.dark .subtitulo {
+  color: #bbbbbb;
+}
+
+body.dark .file-card {
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+body.dark .file-card h2,
+body.dark .file-card p {
+  color: #e0e0e0;
+}
+
+body.dark .download-btn {
+  background-color: #3498db;
+}
+
+body.dark .download-btn:hover {
+  background-color: #2980b9;
+}
+
+body.dark #darkModeToggle {
+  color: #e0e0e0;
+  border-color: #555;
+}
+
+body.dark #searchBar {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body.dark .exam-calendar {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  box-shadow: 0 4px 15px rgba(255,255,255,0.05);
+}
+
+body.dark footer {
+  color: #888;
+}
+
+/* ✅ Tema C1 */
+body.c1 {
+  background-color: #e8f5e9;
+  color: #1b5e20;
+}
+
+body.c1 header h1 {
+  color: #2e7d32;
+}
+
+body.c1 .file-card {
+  background-color: #ffffff;
+  border: 2px solid #a5d6a7;
+}
+
+body.c1 .file-card h2 {
+  color: #1b5e20;
+}
+
+body.c1 .file-card p {
+  color: #33691e;
+}
+
+body.c1 .download-btn {
+  background-color: #43a047;
+}
+
+body.c1 .download-btn:hover {
+  background-color: #2e7d32;
+}
+
+body.c1 #darkModeToggle,
+body.c1 #c1ThemeToggle {
+  border-color: #66bb6a;
+  color: #1b5e20;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resúmenes 4to 7ma</title>
+  <link rel="stylesheet" href="estilos.css" />
+  <link rel="stylesheet" href="septima.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<header>
+  <img src="escudo.png" alt="Logo de la escuela" class="logo-escuela">
+  <h1>📚 Resúmenes - 4to 7ma</h1>
+  <p class="subtitulo">Algunos resúmenes</p>
+  <button id="darkModeToggle">🌙 Modo Oscuro</button>
+</header>
+
+<input type="text" id="searchBar" placeholder="Buscar resumen..." />
+
+<main class="grid">
+  <div class="file-card">
+    <h2>Economía</h2>
+    <p>Resumen introductorio sobre conceptos básicos y modelos económicos.</p>
+    <a class="download-btn" href="ECONOMIA.odt" download>Descargar archivo</a>
+  </div>
+
+  <div class="file-card">
+    <h2>Lengua</h2>
+    <p>Resumen de Edipo Rey.</p>
+    <a class="download-btn" href="MITO DE EDIPO REY_20251113_010453_0000.pdf" download>Descargar archivo</a>
+  </div>
+ 
+  <div class="file-card">
+    <h2>Lengua</h2>
+    <p>Resumen de Antigona.</p>
+    <a class="download-btn" href="MITO DE ANTIGONA_20251113_010133_0000.pdf" download>Descargar archivo</a>
+  </div>
+
+  <div class="file-card">
+    <h2>Lengua</h2>
+    <p>Resumen de Sófocles.</p>
+    <a class="download-btn" href="Fue un autor clave en el desarrollo del teatro clásico y un símbolo de la t_20251113_010922_0000.pdf" download>Descargar archivo</a>
+  </div>
+
+  <div class="file-card">
+    <h2>Psicología</h2>
+    <p>Principales corrientes y teorías psicológicas explicadas.</p>
+    <a class="download-btn" href="psicologia.odt" download>Descargar archivo</a>
+  </div>
+
+  <div class="file-card">
+    <h2>Lengua</h2>
+    <p>Análisis literario y recursos lingüísticos fundamentales.</p>
+    <a class="download-btn" href="lengua.odt" download>Descargar archivo</a>
+  </div>
+
+  <div class="file-card">
+    <h2>Matemáticas</h2>
+    <p>Resumen de funciones, álgebra y resolución de problemas.</p>
+    <a class="download-btn" href="matematic.odt" download>Descargar archivo</a>
+  </div>
+
+  <div class="file-card">
+    <h2>Ética</h2>
+    <p>Introducción al pensamiento ético y dilemas morales.</p>
+    <a class="download-btn" href="etica1.odt" download>Descargar archivo</a>
+  </div>
+</main>
+
+<section class="exam-calendar">
+  <h2>🗓️ Calendario de Pruebas</h2>
+  <ul id="examList"></ul>
+</section>
+
+<footer>
+  <p>© 2025 4to 7ma</p>
+  <p>francofonoDev@proton.me</p>
+</footer>
+
+<script>
+  // Modo Oscuro
+  const toggle = document.getElementById('darkModeToggle');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    document.body.classList.remove('c1');
+    toggle.textContent = document.body.classList.contains('dark') ? '☀️ Modo Claro' : '🌙 Modo Oscuro';
+  });
+
+  // Tema C1
+  const c1Toggle = document.getElementById('c1ThemeToggle');
+  c1Toggle.addEventListener('click', () => {
+    document.body.classList.toggle('c1');
+    document.body.classList.remove('dark');
+  });
+
+  // Búsqueda
+  const searchBar = document.getElementById("searchBar");
+  searchBar.addEventListener("input", function () {
+    const query = this.value.toLowerCase();
+    const cards = document.querySelectorAll(".file-card");
+    cards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      card.style.display = text.includes(query) ? "block" : "none";
+    });
+  });
+
+  // Calendario de pruebas
+  const exams = [
+    { materia: "Matemáticas", fecha: "EN 2 SEMANAS" },
+    { materia: "Lengua", fecha: "NO HAY" },
+    { materia: "Psicología", fecha: "NO HAY" }
+  ];
+  const examList = document.getElementById("examList");
+
+  exams.forEach(exam => {
+    const hoy = new Date();
+    const fechaExamen = new Date(exam.fecha);
+    const diferencia = Math.ceil((fechaExamen - hoy) / (1000 * 60 * 60 * 24));
+    const li = document.createElement("li");
+    li.textContent = `${exam.materia}: ${diferencia >= 0 ? `Faltan ${diferencia} día${diferencia !== 1 ? 's' : ''}` : "Ya pasó"}`;
+    examList.appendChild(li);
+  });
+</script>
+
+</body>
+</html>
