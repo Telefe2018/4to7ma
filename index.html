@@ -16,28 +16,6 @@
   <p class="subtitulo">Algunos resúmenes</p>
   <button id="darkModeToggle">🌙 Modo Oscuro</button>
 </header>
-  <button class="fav-btn" data-id="antigona">★ Guardar</button>
-<ul>
-  <li><button class="fav-btn" data-id="economia">★</button> ECONOMIA.odt</li>
-  <li><button class="fav-btn" data-id="antigona">★</button> MITO DE ANTIGONA</li>
-  <li><button class="fav-btn" data-id="edipo">★</button> MITO DE EDIPO REY</li>
-  <li><button class="fav-btn" data-id="etica">★</button> Ética</li>
-  <li><button class="fav-btn" data-id="psico">★</button> Psicología</li>
-</ul>
-<h1>Mis favoritos</h1>
-<ul id="listaFavs"></ul>
-
-<script>
-const lista = document.getElementById("listaFavs");
-const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-
-favoritos.forEach(id => {
-    const li = document.createElement("li");
-    li.textContent = id;
-    lista.appendChild(li);
-});
-</script>
-
 
 <input type="text" id="searchBar" placeholder="Buscar resumen..." />
 
@@ -145,40 +123,8 @@ favoritos.forEach(id => {
     examList.appendChild(li);
   });
 </script>
-<script>
-const favButtons = document.querySelectorAll(".fav-btn");
-
-function loadFavs() {
-    const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-    favButtons.forEach(btn => {
-        const id = btn.getAttribute("data-id");
-        if (favoritos.includes(id)) {
-            btn.textContent = "✓";
-        }
-    });
-}
-
-favButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        const id = btn.getAttribute("data-id");
-        let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-
-        if (favoritos.includes(id)) {
-            favoritos = favoritos.filter(item => item !== id);
-            btn.textContent = "★";
-        } else {
-            favoritos.push(id);
-            btn.textContent = "✓";
-        }
-
-        localStorage.setItem("favoritos", JSON.stringify(favoritos));
-    });
-});
-
-loadFavs();
-</script>
-
   
 </body>
 </html>
+
 
